@@ -42,4 +42,10 @@ btnSignIn.addEventListener('click', (ev) => {
   // firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn);
 });
 
-
+// Button Events
+btnSignUp.addEventListener('click', () => {
+    let userNicknameValue = userNickname.value;
+    let userEmailValue = userEmail.value;
+    let userPasswordValue = userPassword.value;
+    auth.createUserWithEmailAndPassword(userEmailValue, userPasswordValue);
+})

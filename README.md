@@ -1,5 +1,28 @@
 # Creando una Red Social
 
+## Red Social Meeus
+####Que es Meeus?
+Meeus es una red social dedicada a conectar personas que sufren sintomas de
+depresion o ansiedad, desde quienes tienen sintomas crónicos
+hasta quienes se sienten incomprendidos por alguna situación específica en un
+determinado momento de sus vidas.
+
+Meeus, tiene como objetivo principal romper con el paradigma de una red social,
+ya que un estudio publicado en la revista Time, revela que las redes sociales
+como Instagram y Facebook tienen efectos negativos entre sus usuarios, entre los
+que destacan el anhelo de no tener la vida de alguien mas, no ser `suficiente` o
+`perfectos`.
+#### Porque nace Meeus?
+Durante las últimas decadas hemos visto evolucionar la medicina, siendo testigos
+de como pacientes con enfermedades como SIDA/VIH o Cancer han incrementado su
+esperanza de vida.
+Pero que pasa con la salud mental?
+
+
+## Historias de usuarios
+Yo Sandra, en los ultimos meses me he sentido incomprendida entre mi grupo de
+amigos, quiza por que estan
+
 ## Preámbulo
 
 Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes

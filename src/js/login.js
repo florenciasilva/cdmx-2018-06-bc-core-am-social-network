@@ -1,5 +1,6 @@
 // Initialize Firebase
 let config = {
+
   apiKey: 'AIzaSyCDQFw022mnaArIkSeD7H-Q2V_zeoyX9YE',
   authDomain: 'meeus-87217.firebaseapp.com',
   databaseURL: 'https://meeus-87217.firebaseio.com',
@@ -14,8 +15,10 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
-// Create User
-/* firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+
+  // Create User
+  /*firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+
     let errorCode = error.code;
     let errorMessage = error.message;
   });
@@ -25,4 +28,3 @@ admin.initializeApp();
     let errorCode = error.code;
     let errorMessage = error.message;
   });
-  */
