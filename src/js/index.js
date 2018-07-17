@@ -44,8 +44,8 @@ btnSignIn.addEventListener('click', (ev) => {
 
 // Button Events
 btnSignUp.addEventListener('click', () => {
-    let userNicknameValue = userNickname.value;
-    let userEmailValue = userEmail.value;
-    let userPasswordValue = userPassword.value;
-    auth.createUserWithEmailAndPassword(userEmailValue, userPasswordValue);
-})
+  let userNicknameValue = userNickname.value;
+  let userEmailValue = userEmail.value;
+  let userPasswordValue = userPassword.value;
+  auth.createUserWithEmailAndPassword(userEmailValue, userPasswordValue);
+});
