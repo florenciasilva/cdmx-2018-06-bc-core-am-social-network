@@ -116,3 +116,32 @@ Los usuarios principales tendrán el siguiente perfil:
 [Secretaría de Salud](https://www.gob.mx/cms/uploads/attachment/file/11918/Salud_Mental.pdf)
 
 [World Health Organization](http://www.who.int/mental_health/who_aims_country_reports/who_aims_report_mexico_es.pdf)
+
+
+## Boilerplate
+
+```
+./
+├── src
+│    └── css
+│    │     └── main.css
+│    └── js
+│    │     ├── index.js
+│    │     ├── login.js
+│    │     ├── app.js
+│    │     └── main.js
+│    └── views
+├── test
+│        ├── data.spec.js
+│        ├── headless.js
+│        ├── index.html
+│        └── social-network.spec.js
+├── UI
+│    └── README.md
+├── .eslintrc
+├── .gitignore
+├──  htmlhintrc
+├──  package.json
+├──  package-lock.json
+└──  README.md
+```
