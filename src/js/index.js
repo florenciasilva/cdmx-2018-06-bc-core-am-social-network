@@ -41,7 +41,7 @@ btnSignIn.addEventListener('click', (ev) => {
     newsFeedContainer.style.display = 'block';
   }).catch(function(error) {
     let errorCode = error.code;
-    let errorMessage = error.message;
+    let errorMessage = alert(error.message);
   });
   firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn);
 });
