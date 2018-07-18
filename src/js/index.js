@@ -19,35 +19,56 @@ let printComment = document.getElementById('printMessage');
 newsFeedContainer.style.display = 'none';
 
 // Button Events
+// Register New User
 btnSignUp.addEventListener('click', (ev) => {
   event.preventDefault(ev);
   let userNicknameValue = userNickname.value;
+  // Storing User Nickname in Local Storage
+  const getName = () => {
+    let user = localStorage.setItem('nickname', userNicknameValue);
+  };
+  const retrieveName = () => {
+    let printUser = localStorage.getItem('nickname');
+    print(printUser);
+  };
+  const print = (printUser) => {
+    document.getElementById('userNickname').innerHTML = `<p> ${printUser} </p>`;
+  };
+  getName();
+  retrieveName();
+  // Hiding non-necessary HTML elements
+  document.getElementById('userNickname').style.display = 'none';
   let userEmailValue = userEmail.value;
   let userPasswordValue = userPassword.value;
   firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue).catch(function(error) {
-    // Handle Errors here.
+    // Show Errors
     var errorCode = error.code;
-    var errorMessage = error.message;
+    var errorMessage = alert(error.message);
   });
   firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue);
 });
-
+// Sign In Event
 btnSignIn.addEventListener('click', (ev) => {
   event.preventDefault(ev);
+  // Obtaining User Inputs
   let userEmailValueSignIn = userEmailSignIn.value;
   let userPasswordValueSignIn = userPasswordSignIn.value;
+  // Sign In Firebase Function
   firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn).then(function(success) {
+    // Managin HTML view
     signInAndUpContainer.style.display = 'none';
     newsFeedContainer.style.display = 'block';
+    document.getElementById('userNickname').style.display = 'block';
   }).catch(function(error) {
     let errorCode = error.code;
     let errorMessage = alert(error.message);
   });
   firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn);
 });
-
+// Send Comment
 btnSendComment.addEventListener('click', (ev) => {
   event.preventDefault(ev);
+  // Obtaining User Input
   let getComment = commentArea.value;
   printComment.innerHTML = getComment;
 });
