@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 .login {
     background-color: #fbfbfb;
     box-shadow: 1px 1px 10px #e8eaf6;
@@ -11,10 +12,13 @@ i {
 h1 {
     font-family: 'Pacifico';
     color: #8aacc8;
-    text-shadow: 1px 1px 1px #fbfbfb;    
+    text-shadow: 1px 1px 1px #fbfbfb;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
 }
 .color-change {
     background-color: #8aacc8;
     left: 37.5%;
 }
-
