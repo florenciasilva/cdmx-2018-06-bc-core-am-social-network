@@ -1,1 +1,1 @@
-//All the functions 
+// All the functions 
