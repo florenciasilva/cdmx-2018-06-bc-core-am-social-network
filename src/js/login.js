@@ -9,22 +9,3 @@ let config = {
   messagingSenderId: '659264664694'
 };
 firebase.initializeApp(config);
-
-const functions = require('firebase-functions');
-// The Firebase Admin SDK to access the Firebase Realtime Database.
-const admin = require('firebase-admin');
-admin.initializeApp();
-
-
-  // Create User
-  /*firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-
-    let errorCode = error.code;
-    let errorMessage = error.message;
-  });
-
-  // Sign In
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    let errorCode = error.code;
-    let errorMessage = error.message;
-  });
