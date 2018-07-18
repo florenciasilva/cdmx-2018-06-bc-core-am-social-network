@@ -1,3 +1,7 @@
+// HTML Container for Sign Up and Sign In
+let signInAndUpContainer = document.getElementById('sign-in-and-sign-up');
+// HTML Container for News Feed
+let newsFeedContainer = document.getElementById('news-feed');
 // HTML Elements for Sign Up
 let btnSignUp = document.getElementById('btnSignUp');
 let userNickname = document.getElementById('icon_prefix');
@@ -7,7 +11,12 @@ let userPassword = document.getElementById('icon_vpn_key');
 let btnSignIn = document.getElementById('btnSignIn');
 let userEmailSignIn = document.getElementById('icon_email_sign_in');
 let userPasswordSignIn = document.getElementById('icon_vpn_key_sign_in');
-
+// HTML Elements for Comment Section
+let btnSendComment = document.getElementById('btnSendComment');
+let commentArea = document.getElementById('commentArea');
+let printComment = document.getElementById('printMessage');
+// Hiding non-necessary HTML Elements
+newsFeedContainer.style.display = 'none';
 
 // Button Events
 btnSignUp.addEventListener('click', (ev) => {
@@ -27,21 +36,18 @@ btnSignIn.addEventListener('click', (ev) => {
   event.preventDefault(ev);
   let userEmailValueSignIn = userEmailSignIn.value;
   let userPasswordValueSignIn = userPasswordSignIn.value;
-  /* admin.auth().getUser(uid).then(function(userRecord) {
-    console.log(userRecord);
-    // See the UserRecord reference doc for the contents of userRecord.
-    console.log('Successfully fetched user data:', userRecord.toJSON());
-  })
-    .catch(function(error) {
-      console.log('Error fetching user data:', error);
-    });*/
-  firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn).catch(function(error) {
-    if (error) {
-      let errorCode = error.code;
-      let errorMessage = error.message;
-    } else {
-      location.href = 'news-feed.html';
-    }
+  firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn).then(function(success) {
+    signInAndUpContainer.style.display = 'none';
+    newsFeedContainer.style.display = 'block';
+  }).catch(function(error) {
+    let errorCode = error.code;
+    let errorMessage = error.message;
   });
   firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn);
+});
+
+btnSendComment.addEventListener('click', (ev) => {
+  event.preventDefault(ev);
+  let getComment = commentArea.value;
+  printComment.innerHTML = getComment;
 });
