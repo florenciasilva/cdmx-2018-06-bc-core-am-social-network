@@ -12,14 +12,19 @@ i {
 }
 h1 {
     font-family: 'Pacifico';
-    color: #8aacc8;
+    color:#4B9ECF;
     text-shadow: 1px 1px 1px #fbfbfb;
 }
 p {
   font-family: 'Roboto', sans-serif;
-  font-size: 15px;
+  font-size: 20px;
+  font-weight: 300;
 }
 .color-change {
     background-color: #8aacc8;
     left: 37.5%;
 }
+
+.waves-effect.waves-turquoise  {
+    background-color: #4B9ECF;
+  }
