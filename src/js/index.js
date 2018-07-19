@@ -69,6 +69,10 @@ btnSignIn.addEventListener('click', (ev) => {
 btnSendComment.addEventListener('click', (ev) => {
   event.preventDefault(ev);
   // Obtaining User Input
+  let result = '';
   let getComment = commentArea.value;
-  printComment.innerHTML = getComment;
+  result += `<div class="card-action">
+    <p id="printMessage">${getComment}</p>
+    </div>`;
+  document.getElementById('comments').innerHTML += result;
 });
