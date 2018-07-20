@@ -23,30 +23,35 @@ newsFeedContainer.style.display = 'none';
 btnSignUp.addEventListener('click', (ev) => {
   event.preventDefault(ev);
   let userNicknameValue = userNickname.value;
-  // Storing User Nickname in Local Storage
-  const getName = () => {
-    let user = localStorage.setItem('nickname', userNicknameValue);
-  };
-  const retrieveName = () => {
-    let printUser = localStorage.getItem('nickname');
-    print(printUser);
-  };
-  const print = (printUser) => {
-    document.getElementById('userNickname').innerHTML = `<p> ${printUser} </p>`;
-  };
-  getName();
-  retrieveName();
   // Hiding non-necessary HTML elements
   document.getElementById('userNickname').style.display = 'none';
   let userEmailValue = userEmail.value;
   let userPasswordValue = userPassword.value;
   firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue).catch(function(error) {
     // Show Errors
-    var errorCode = error.code;
-    var errorMessage = alert(error.message);
-  });
+      var errorCode = error.code;
+      var errorMessage = alert(error.message);
+    });
   firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue);
+// Storing Dynamic Data in Firebase Realtime Database
+let signUpSection = document.getElementsByClassName('data-key-sign-up');
+for (let i = 0; i < signUpSection.length; i++) {
+  let key = signUpSection[i].getAttribute('data-key');
+  let value = signUpSection[i].value;
+  databaseObject.user[key] = value;
+  //console.log(databaseObject.user.uid)
+  let uid = firebase.auth().currentUser.uid;
+  firebase.database().ref().child('user').push(uid)
+  console.log(databaseObject);
+  }
+  
+
+  const dbUserRef = firebase.database().ref();
+  dbUserRef.push(databaseObject, () => {
+    console.log('wooooooo');
+  });
 });
+
 // Sign In Event
 btnSignIn.addEventListener('click', (ev) => {
   event.preventDefault(ev);
