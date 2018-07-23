@@ -18,7 +18,7 @@ let btnSendComment = document.getElementById('btnSendComment');
 let commentArea = document.getElementById('commentArea');
 let printComment = document.getElementById('printMessage');
 // Hiding non-necessary HTML Elements
-//newsFeedContainer.style.display = 'none';
+// newsFeedContainer.style.display = 'none';
 
 // Button Events
 // Register New User
@@ -116,34 +116,34 @@ btnSignInGoogle.addEventListener('click', (ev) => {
     };
 
     window.addEventListener('load', function() {
-        initApp()
+        initApp();
     });
     /*    let provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-            console.log(provider);
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            let token = result.credential.accessToken;
-            // The signed-in user info.
-            let user = result.user;
-        }).catch(function(error) {
-            // Handle Errors here.
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            // The email of the user's account used.
-            let email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            let credential = error.credential;
-        });
+          firebase.auth().signInWithPopup(provider).then(function(result) {
+              console.log(provider);
+              // This gives you a Google Access Token. You can use it to access the Google API.
+              let token = result.credential.accessToken;
+              // The signed-in user info.
+              let user = result.user;
+          }).catch(function(error) {
+              // Handle Errors here.
+              let errorCode = error.code;
+              let errorMessage = error.message;
+              // The email of the user's account used.
+              let email = error.email;
+              // The firebase.auth.AuthCredential type that was used.
+              let credential = error.credential;
+          });
 
-        firebase.auth().signInWithPopup(provider);*/
+          firebase.auth().signInWithPopup(provider);*/
 });
 
-//btnSignOut.addEventListener('click', () => {
+// btnSignOut.addEventListener('click', () => {
 
-//});
+// });
 
 // Send Comment
-/*btnSendComment.addEventListener('click', (ev) => {
+/* btnSendComment.addEventListener('click', (ev) => {
     event.preventDefault(ev);
     // Obtaining User Input
     let result = '';
