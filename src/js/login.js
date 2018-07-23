@@ -20,7 +20,6 @@ let uiConfig = {
         },
         uiShown: function() {
             // The widget is rendered.
-
         }
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
