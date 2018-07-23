@@ -51,6 +51,24 @@ misma situacion que ella pero sin necesidad de ponerle un rostro ya que dentro
 de sus inseguridades esta el miedo de ser juzgada por tener pensamientos
 obsesivos.
 
+Las anteriores historias de usuario no son ficticias, de hecho exiten foros e hilos 
+a traves de sitios como <https://www.reddit.com/r/depression/> lugar donde los usuarios crearon
+un micro sitio de posts en los que cuentan sus experiencias y anecdotas de problemas
+que atraviesan y lo comparten con los demás usuarios y ellos a su vez comentan los post
+con un mensaje de apoyo o empatía
+Es interesante el ver que este sitio no fue creado en primer instancia para poder compartir
+expericias personales, si no que la necesidad de usuarios para compartir y expresar sus 
+sentimientos y sumado a las carencias de interactividad social, redes de apoyo y acceso a terapia,
+hacen que el internet sea su única red de interactividad.
+
+Entre las ventajas que existen de usar estos sitios destaca tres:
+**anonimato** : El usuario interesado utiliza un nickname que le da la seguridad que su identidad 
+personal esta oculta además de otros datos personales
+**fácil acceso**: 
+El proceso de compartir/cometar sea sencillo.
+**gratuito**
+
+
 # **Analisis de Data:**
 Durante nuestro Research analisimas data de encuestas que levantamos así como del INEGI.
 Los principales datos recolectados son:
