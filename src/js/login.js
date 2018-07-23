@@ -11,7 +11,7 @@ firebase.initializeApp(config);
 
 // FirebaseUI config
 let uiConfig = {
-    signInSuccessUrl: 'news-feed.html',
+    signInSuccessUrl: 'https://florenciasilva.github.io/cdmx-2018-06-bc-core-am-social-network/src/news-feed',
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
