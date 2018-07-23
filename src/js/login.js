@@ -20,8 +20,7 @@ let uiConfig = {
         },
         uiShown: function() {
             // The widget is rendered.
-            // Hide the loader.
-            document.getElementById('loader').style.display = 'none';
+
         }
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
