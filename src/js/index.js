@@ -19,9 +19,14 @@ let commentArea = document.getElementById('commentArea');
 let printComment = document.getElementById('printMessage');
 // Hiding non-necessary HTML Elements
 // newsFeedContainer.style.display = 'none';
+document.getElementById('signIn').style.display = 'none';
+document.getElementById('hide-sign-up').addEventListener('click', (ev) => {
+        document.getElementById('sign-up').style.display = 'none';
+        document.getElementById('signIn').style.display = 'block';
 
-// Button Events
-// Register New User
+    })
+    // Button Events
+    // Register New User
 btnSignUp.addEventListener('click', (ev) => {
     event.preventDefault(ev);
     let userNicknameValue = userNickname.value;
@@ -71,7 +76,7 @@ btnSignIn.addEventListener('click', (ev) => {
 });
 
 // Google Sign In
-btnSignInGoogle.addEventListener('click', (ev) => {
+/*btnSignInGoogle.addEventListener('click', (ev) => {
     event.preventDefault(ev);
     // Sign In with Google (Code Snippet from Firebase Documentation)
     // Initialize the FirebaseUI Widget using Firebase.
@@ -135,15 +140,15 @@ btnSignInGoogle.addEventListener('click', (ev) => {
               let credential = error.credential;
           });
 
-          firebase.auth().signInWithPopup(provider);*/
+          firebase.auth().signInWithPopup(provider);
 });
 
 // btnSignOut.addEventListener('click', () => {
 
 // });
-
+*/
 // Send Comment
-/* btnSendComment.addEventListener('click', (ev) => {
+/*btnSendComment.addEventListener('click', (ev) => {
     event.preventDefault(ev);
     // Obtaining User Input
     let result = '';

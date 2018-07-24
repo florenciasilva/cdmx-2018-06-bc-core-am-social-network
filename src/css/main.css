@@ -6,21 +6,17 @@
     font-weight: 100;
 }
 
+#signIn {
+    margin-top: 20px;
+    width: 381.4px;
+}
+
 .subtitle {
     font-size: 93%;
     letter-spacing: 0.2px;
     margin-top: -20px;
     font-family: 'Roboto';
     font-weight: 100;
-    color: #474747;
-}
-
-.sign-in-google {
-    margin-top: -20px;
-    font-family: 'Roboto';
-    font-weight: 100;
-    font-size: 13px;
-    letter-spacing: 0.6px;
     color: #474747;
 }
 
@@ -33,11 +29,13 @@
     text-align: center;
 }
 
-.btn-google {
-    display: block;
-    margin-top: -20px;
-    margin-left: 43%;
-    background-color: #4B9ECF;
+.sign-in-google {
+    font-family: 'Roboto';
+    font-weight: 100;
+    font-size: 13px;
+    left: 43%;
+    letter-spacing: 0.6px;
+    color: #474747;
 }
 
 body {
@@ -58,6 +56,16 @@ h1 {
 p {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
+}
+
+#hide-sign-up {
+    border: none;
+    background-color: #eeffff;
+    font-size: 12px;
+    letter-spacing: -0.4px;
+    font-family: 'Roboto';
+    font-weight: 100;
+    margin-left: 43px;
 }
 
 .color-change {
