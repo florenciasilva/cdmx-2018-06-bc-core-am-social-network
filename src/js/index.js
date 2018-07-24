@@ -1,11 +1,12 @@
 document.getElementById('signIn').style.display = 'none';
 document.getElementById('hide-sign-up').addEventListener('click', (ev) => {
+    event.preventDefault(ev);
     console.log('wooo');
     document.getElementById('sign-up').style.display = 'none';
     document.getElementById('signIn').style.display = 'block';
 });
 
-if (window.location.href === '../src/index.html') {
+//if (window.location.href === '../src/index.html') {
 // HTML Container for Sign Up and Sign In
   let signInAndUpContainer = document.getElementById('sign-in-and-sign-up');
   // HTML Container for News Feed
@@ -27,19 +28,16 @@ if (window.location.href === '../src/index.html') {
   // Register New User
   btnSignUp.addEventListener('click', (ev) => {
     event.preventDefault(ev);
-    // let userNicknameValue = userNickname.value;
-    // Hiding non-necessary HTML elements
     let userEmailValue = userEmail.value;
     let userPasswordValue = userPassword.value;
     // Creating user with Email and Password
+    firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue).then(function() {
+        window.location.assign('../src/news-feed.html');
 
-    firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue).then(function(success) {
-      location.assign('../src/news-feed.html');
     }).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = alert(error.message);
+        var errorCode = error.code;
+        var errorMessage = alert(error.message);
     });
-
     // Storing Dynamic Data in Firebase Realtime Database
     let databaseObject = {
       user: {
@@ -83,26 +81,6 @@ if (window.location.href === '../src/index.html') {
     });
     firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn);
   });
-}
-if (window.location.href === '../src/news-feed.html') {
-// HTML Elements for Comment Section
-  let btnSendComment = document.getElementById('btnSendComment');
-  let commentArea = document.getElementById('commentArea');
-  let printComment = document.getElementById('printMessage');
-
-  // Send Comment
-  btnSendComment.addEventListener('click', (ev) => {
-    event.preventDefault(ev);
-    // Obtaining User Input
-    let result = '';
-    let getComment = commentArea.value;
-    result += `<div class="card-action">
-    <p id="printMessage">${getComment}</p>
-    </div>`;
-    document.getElementById('comments').innerHTML += result;
-  }); 
-}
-
 
 // Log in with facebook, we get this code from the site of facebook for developers
 /* let provider = new firebase.auth.FacebookAuthProvider();
