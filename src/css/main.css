@@ -5,16 +5,15 @@
     font-family: 'Roboto';
     font-weight: 100;
 }
-
-#signIn {
-    margin-top: 20px;
-    width: 304px;
+.container {
+    margin-top: 15%;
 }
-
+.color-block {
+    background-color: #a6c4d1;
+}
 .subtitle {
     font-size: 93%;
     letter-spacing: 0.2px;
-    margin-top: -20px;
     font-family: 'Roboto';
     font-weight: 100;
     color: #474747;
@@ -26,14 +25,13 @@
     font-family: 'Roboto';
     font-weight: 100;
     color: #474747;
-    text-align: center;
+
 }
 
 .sign-in-google {
     font-family: 'Roboto';
     font-weight: 100;
     font-size: 13px;
-    left: 43%;
     letter-spacing: 0.6px;
     color: #474747;
 }
@@ -46,16 +44,25 @@ body {
 i {
     color: #a6c4d1;
 }
-
+.description {
+    font-family: 'Roboto';
+    font-weight: 100;
+    color: #eeffff;
+    font-size: 90%;
+    
+}
 h1 {
     font-family: 'Pacifico';
     color: #4B9ECF;
     text-shadow: 1px 1px 1px #fbfbfb;
+    text-align: center;
+    margin-bottom: -10px;
 }
 
 p {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
+    text-align: center;
 }
 
 #hide-sign-up {
@@ -65,7 +72,6 @@ p {
     letter-spacing: -0.4px;
     font-family: 'Roboto';
     font-weight: 100;
-    margin-left: 43px;
 }
 
 .color-change {
