@@ -21,62 +21,89 @@ let printComment = document.getElementById('printMessage');
 // newsFeedContainer.style.display = 'none';
 document.getElementById('signIn').style.display = 'none';
 document.getElementById('hide-sign-up').addEventListener('click', (ev) => {
-        document.getElementById('sign-up').style.display = 'none';
-        document.getElementById('signIn').style.display = 'block';
-
-    })
-    // Button Events
-    // Register New User
+  document.getElementById('sign-up').style.display = 'none';
+  document.getElementById('signIn').style.display = 'block';
+});
+// Button Events
+// Register New User
 btnSignUp.addEventListener('click', (ev) => {
-    event.preventDefault(ev);
-    let userNicknameValue = userNickname.value;
-    // Hiding non-necessary HTML elements
-    document.getElementById('userNickname').style.display = 'none';
-    let userEmailValue = userEmail.value;
-    let userPasswordValue = userPassword.value;
-    // Creating user with Email and Password
-    firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue).catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = alert(error.message);
-    });
-    // Storing Dynamic Data in Firebase Realtime Database
-    let signUpSection = document.getElementsByClassName('data-key-sign-up');
-    for (let i = 0; i < signUpSection.length; i++) {
-        let key = signUpSection[i].getAttribute('data-key');
-        let value = signUpSection[i].value;
-        databaseObject.user[key] = value;
-        // console.log(databaseObject.user.uid)
-        // let uid = firebase.auth().currentUser.uid;
-        // firebase.database().ref().child('user').push(uid)
-        console.log(databaseObject);
-    }
-    firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue);
-    // const dbUserRef = firebase.database().ref();
-    // dbUserRef.push(databaseObject, () => {
-    //    console.log('wooooooo');
+  event.preventDefault(ev);
+  let userNicknameValue = userNickname.value;
+  // Hiding non-necessary HTML elements
+  document.getElementById('userNickname').style.display = 'none';
+  let userEmailValue = userEmail.value;
+  let userPasswordValue = userPassword.value;
+  // Creating user with Email and Password
+  firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue).catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = alert(error.message);
+  });
+  // Storing Dynamic Data in Firebase Realtime Database
+  let signUpSection = document.getElementsByClassName('data-key-sign-up');
+  for (let i = 0; i < signUpSection.length; i++) {
+    let key = signUpSection[i].getAttribute('data-key');
+    let value = signUpSection[i].value;
+    databaseObject.user[key] = value;
+    // console.log(databaseObject.user.uid)
+    // let uid = firebase.auth().currentUser.uid;
+    // firebase.database().ref().child('user').push(uid)
+    console.log(databaseObject);
+  }
+  firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue);
+  // const dbUserRef = firebase.database().ref();
+  // dbUserRef.push(databaseObject, () => {
+  //    console.log('wooooooo');
 });
 
 // Sign In Event
 btnSignIn.addEventListener('click', (ev) => {
-    event.preventDefault(ev);
-    // Obtaining User Inputs
-    let userEmailValueSignIn = userEmailSignIn.value;
-    let userPasswordValueSignIn = userPasswordSignIn.value;
-    // Sign In Firebase Function
-    firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn).then(function(success) {
-        // Managin HTML view
-        signInAndUpContainer.style.display = 'none';
-        newsFeedContainer.style.display = 'block';
-        document.getElementById('userNickname').style.display = 'block';
-    }).catch(function(error) {
-        let errorCode = error.code;
-        let errorMessage = alert(error.message);
-    });
-    firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn);
+  event.preventDefault(ev);
+  // Obtaining User Inputs
+  let userEmailValueSignIn = userEmailSignIn.value;
+  let userPasswordValueSignIn = userPasswordSignIn.value;
+  // Sign In Firebase Function
+  firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn).then(function(success) {
+    // Managin HTML view
+    signInAndUpContainer.style.display = 'none';
+    newsFeedContainer.style.display = 'block';
+    document.getElementById('userNickname').style.display = 'block';
+  }).catch(function(error) {
+    let errorCode = error.code;
+    let errorMessage = alert(error.message);
+  });
+  firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn);
+});
+
+// Log in with facebook, we get this code from the site of facebook for developers
+let provider = new firebase.auth.FacebookAuthProvider();
+firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  let token = result.credential.accessToken;
+  // The signed-in user info.
+  let user = result.user;
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  let errorCode = error.code;
+  let errorMessage = error.message;
+  // The email of the user's account used.
+  let email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  let credential = error.credential;
+  // ...
+  return provider;
+  console.log(provider);
+});
+
+// sign out
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
 });
 
 // Google Sign In
-/*btnSignInGoogle.addEventListener('click', (ev) => {
+/* btnSignInGoogle.addEventListener('click', (ev) => {
     event.preventDefault(ev);
     // Sign In with Google (Code Snippet from Firebase Documentation)
     // Initialize the FirebaseUI Widget using Firebase.
@@ -148,7 +175,7 @@ btnSignIn.addEventListener('click', (ev) => {
 // });
 */
 // Send Comment
-/*btnSendComment.addEventListener('click', (ev) => {
+/* btnSendComment.addEventListener('click', (ev) => {
     event.preventDefault(ev);
     // Obtaining User Input
     let result = '';
