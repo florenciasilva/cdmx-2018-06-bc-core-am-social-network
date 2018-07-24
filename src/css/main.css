@@ -1,30 +1,76 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-.login {
+.login,
+.sign-in {
     background-color: #fbfbfb;
     box-shadow: 1px 1px 10px #e8eaf6;
+    font-family: 'Roboto';
+    font-weight: 100;
 }
+
+#signIn {
+    margin-top: 20px;
+    width: 304px;
+}
+
+.subtitle {
+    font-size: 93%;
+    letter-spacing: 0.2px;
+    margin-top: -20px;
+    font-family: 'Roboto';
+    font-weight: 100;
+    color: #474747;
+}
+
+.sign-in-title {
+    font-size: 100%;
+    letter-spacing: 0.2px;
+    font-family: 'Roboto';
+    font-weight: 100;
+    color: #474747;
+    text-align: center;
+}
+
+.sign-in-google {
+    font-family: 'Roboto';
+    font-weight: 100;
+    font-size: 13px;
+    left: 43%;
+    letter-spacing: 0.6px;
+    color: #474747;
+}
+
 body {
     background-color: #eeffff;
     font-family: 'Roboto', sans-serif;
 }
+
 i {
     color: #a6c4d1;
 }
+
 h1 {
     font-family: 'Pacifico';
-    color:#4B9ECF;
+    color: #4B9ECF;
     text-shadow: 1px 1px 1px #fbfbfb;
 }
+
 p {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-}
-.color-change {
-    background-color: #8aacc8;
-    left: 37.5%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 
-.waves-effect.waves-turquoise  {
+#hide-sign-up {
+    border: none;
+    background-color: #eeffff;
+    font-size: 12px;
+    letter-spacing: -0.4px;
+    font-family: 'Roboto';
+    font-weight: 100;
+    margin-left: 43px;
+}
+
+.color-change {
     background-color: #4B9ECF;
-  }
+    left: 37.5%;
+    font-family: 'Roboto';
+    font-weight: 100;
+}
