@@ -1,3 +1,11 @@
+document.getElementById('signIn').style.display = 'none';
+document.getElementById('hide-sign-up').addEventListener('click', (ev) => {
+    event.preventDefault(ev);
+    console.log('wooo');
+    document.getElementById('sign-up').style.display = 'none';
+    document.getElementById('signIn').style.display = 'block';
+});
+
 // HTML Container for Sign Up and Sign In
 let signInAndUpContainer = document.getElementById('sign-in-and-sign-up');
 // HTML Container for News Feed
@@ -13,69 +21,67 @@ let userEmailSignIn = document.getElementById('icon_email_sign_in');
 let userPasswordSignIn = document.getElementById('icon_vpn_key_sign_in');
 let btnSignInGoogle = document.getElementById('btn_sign_in_google');
 let btnSignOut = document.getElementById('btn_sign_out');
-// HTML Elements for Comment Section
-let btnSendComment = document.getElementById('btnSendComment');
-let commentArea = document.getElementById('commentArea');
-let printComment = document.getElementById('printMessage');
-// Hiding non-necessary HTML Elements
-// newsFeedContainer.style.display = 'none';
-document.getElementById('signIn').style.display = 'none';
-document.getElementById('hide-sign-up').addEventListener('click', (ev) => {
-  document.getElementById('sign-up').style.display = 'none';
-  document.getElementById('signIn').style.display = 'block';
-});
 // Button Events
+
 // Register New User
 btnSignUp.addEventListener('click', (ev) => {
-  event.preventDefault(ev);
-  let userNicknameValue = userNickname.value;
-  // Hiding non-necessary HTML elements
-  document.getElementById('userNickname').style.display = 'none';
-  let userEmailValue = userEmail.value;
-  let userPasswordValue = userPassword.value;
-  // Creating user with Email and Password
-  firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue).catch(function(error) {
-    var errorCode = error.code;
-    var errorMessage = alert(error.message);
-  });
-  // Storing Dynamic Data in Firebase Realtime Database
-  let signUpSection = document.getElementsByClassName('data-key-sign-up');
-  for (let i = 0; i < signUpSection.length; i++) {
-    let key = signUpSection[i].getAttribute('data-key');
-    let value = signUpSection[i].value;
-    databaseObject.user[key] = value;
-    // console.log(databaseObject.user.uid)
-    // let uid = firebase.auth().currentUser.uid;
-    // firebase.database().ref().child('user').push(uid)
-    console.log(databaseObject);
-  }
-  firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue);
-  // const dbUserRef = firebase.database().ref();
-  // dbUserRef.push(databaseObject, () => {
-  //    console.log('wooooooo');
-});
+    event.preventDefault(ev);
+    let userEmailValue = userEmail.value;
+    let userPasswordValue = userPassword.value;
+    // Creating user with Email and Password
+    firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue).then(function() {
+        window.location.assign('../src/news-feed.html');
 
+    }).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = alert(error.message);
+    });
+    // Storing Dynamic Data in Firebase Realtime Database
+    let databaseObject = {
+        user: {
+            nickname: '',
+            email: '',
+            uid: '',
+            profileImg: '',
+            posts: {
+                msg: '',
+                img: '',
+                likes: 0,
+                timeStamp: 0,
+            }
+        }
+    };
+    let signUpSection = document.getElementsByClassName('data-key-sign-up');
+    for (let i = 0; i < signUpSection.length; i++) {
+        let key = signUpSection[i].getAttribute('data-key');
+        let value = signUpSection[i].value;
+        databaseObject.user[key] = value;
+        console.log(databaseObject);
+    }
+    firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue);
+});
 // Sign In Event
 btnSignIn.addEventListener('click', (ev) => {
-  event.preventDefault(ev);
-  // Obtaining User Inputs
-  let userEmailValueSignIn = userEmailSignIn.value;
-  let userPasswordValueSignIn = userPasswordSignIn.value;
-  // Sign In Firebase Function
-  firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn).then(function(success) {
-    // Managin HTML view
-    signInAndUpContainer.style.display = 'none';
-    newsFeedContainer.style.display = 'block';
-    document.getElementById('userNickname').style.display = 'block';
-  }).catch(function(error) {
-    let errorCode = error.code;
-    let errorMessage = alert(error.message);
-  });
-  firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn);
+    event.preventDefault(ev);
+    // Obtaining User Inputs
+    let userEmailValueSignIn = userEmailSignIn.value;
+    let userPasswordValueSignIn = userPasswordSignIn.value;
+    // Sign In Firebase Function
+    firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn).then(function(success) {
+        // Managin HTML view
+        signInAndUpContainer.style.display = 'none';
+        newsFeedContainer.style.display = 'block';
+        document.getElementById('userNickname').style.display = 'block';
+        success.location.assign = 'https://florenciasilva.github.io/cdmx-2018-06-bc-core-am-social-network/src/news-feed';
+    }).catch(function(error) {
+        let errorCode = error.code;
+        let errorMessage = alert(error.message);
+    });
+    firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn);
 });
 
 // Log in with facebook, we get this code from the site of facebook for developers
-let provider = new firebase.auth.FacebookAuthProvider();
+/* let provider = new firebase.auth.FacebookAuthProvider();
 firebase.auth().signInWithPopup(provider).then(function(result) {
   // This gives you a Facebook Access Token. You can use it to access the Facebook API.
   let token = result.credential.accessToken;
@@ -103,7 +109,7 @@ firebase.auth().signOut().then(function() {
 });
 
 // Google Sign In
-/* btnSignInGoogle.addEventListener('click', (ev) => {
+ btnSignInGoogle.addEventListener('click', (ev) => {
     event.preventDefault(ev);
     // Sign In with Google (Code Snippet from Firebase Documentation)
     // Initialize the FirebaseUI Widget using Firebase.
@@ -150,7 +156,7 @@ firebase.auth().signOut().then(function() {
     window.addEventListener('load', function() {
         initApp();
     });
-    /*    let provider = new firebase.auth.GoogleAuthProvider();
+        let provider = new firebase.auth.GoogleAuthProvider();
           firebase.auth().signInWithPopup(provider).then(function(result) {
               console.log(provider);
               // This gives you a Google Access Token. You can use it to access the Google API.
@@ -174,14 +180,3 @@ firebase.auth().signOut().then(function() {
 
 // });
 */
-// Send Comment
-/* btnSendComment.addEventListener('click', (ev) => {
-    event.preventDefault(ev);
-    // Obtaining User Input
-    let result = '';
-    let getComment = commentArea.value;
-    result += `<div class="card-action">
-    <p id="printMessage">${getComment}</p>
-    </div>`;
-    document.getElementById('comments').innerHTML += result;
-});*/

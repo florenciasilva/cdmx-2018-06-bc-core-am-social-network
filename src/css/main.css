@@ -5,12 +5,19 @@
     font-family: 'Roboto';
     font-weight: 100;
 }
+
+#signIn {
+    margin-top: -5%;
+}
+
 .container {
     margin-top: 15%;
 }
+
 .color-block {
     background-color: #a6c4d1;
 }
+
 .subtitle {
     font-size: 93%;
     letter-spacing: 0.2px;
@@ -25,7 +32,6 @@
     font-family: 'Roboto';
     font-weight: 100;
     color: #474747;
-
 }
 
 .sign-in-google {
@@ -44,19 +50,28 @@ body {
 i {
     color: #a6c4d1;
 }
+
 .description {
     font-family: 'Roboto';
     font-weight: 100;
     color: #eeffff;
     font-size: 90%;
-    
 }
+
 h1 {
     font-family: 'Pacifico';
     color: #4B9ECF;
     text-shadow: 1px 1px 1px #fbfbfb;
     text-align: center;
     margin-bottom: -10px;
+}
+
+.comment-section {
+    margin-top: -10px;
+}
+
+.material-icons {
+    font-size: 30px;
 }
 
 p {
