@@ -1,3 +1,5 @@
+// Code Snippets 
+
 let config = {
   apiKey: 'AIzaSyCDQFw022mnaArIkSeD7H-Q2V_zeoyX9YE',
   authDomain: 'meeus-87217.firebaseapp.com',
@@ -18,9 +20,6 @@ let uiConfig = {
       return true;
     },
     uiShown: function() {
-      // The widget is rendered.
-      // Hide the loader.
-      // uiLoader.style.display = 'none';
     }
   },
   // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
