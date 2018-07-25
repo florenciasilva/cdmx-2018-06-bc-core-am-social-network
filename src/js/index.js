@@ -6,27 +6,25 @@ document.getElementById('hide-sign-up').addEventListener('click', (ev) => {
     document.getElementById('signIn').style.display = 'block';
 });
 
-//if (window.location.href === '../src/index.html') {
 // HTML Container for Sign Up and Sign In
-  let signInAndUpContainer = document.getElementById('sign-in-and-sign-up');
-  // HTML Container for News Feed
-  let newsFeedContainer = document.getElementById('news-feed');
-  // HTML Elements for Sign Up
-  let btnSignUp = document.getElementById('btnSignUp');
-  let userNickname = document.getElementById('icon_prefix');
-  let userEmail = document.getElementById('icon_email');
-  let userPassword = document.getElementById('icon_vpn_key');
-  // HTML Elements for Sign In/Out
-  let btnSignIn = document.getElementById('btnSignIn');
-  let userEmailSignIn = document.getElementById('icon_email_sign_in');
-  let userPasswordSignIn = document.getElementById('icon_vpn_key_sign_in');
-  let btnSignInGoogle = document.getElementById('btn_sign_in_google');
-  let btnSignOut = document.getElementById('btn_sign_out');
-  // Button Events
-  // User already has an account
+let signInAndUpContainer = document.getElementById('sign-in-and-sign-up');
+// HTML Container for News Feed
+let newsFeedContainer = document.getElementById('news-feed');
+// HTML Elements for Sign Up
+let btnSignUp = document.getElementById('btnSignUp');
+let userNickname = document.getElementById('icon_prefix');
+let userEmail = document.getElementById('icon_email');
+let userPassword = document.getElementById('icon_vpn_key');
+// HTML Elements for Sign In/Out
+let btnSignIn = document.getElementById('btnSignIn');
+let userEmailSignIn = document.getElementById('icon_email_sign_in');
+let userPasswordSignIn = document.getElementById('icon_vpn_key_sign_in');
+let btnSignInGoogle = document.getElementById('btn_sign_in_google');
+let btnSignOut = document.getElementById('btn_sign_out');
+// Button Events
 
-  // Register New User
-  btnSignUp.addEventListener('click', (ev) => {
+// Register New User
+btnSignUp.addEventListener('click', (ev) => {
     event.preventDefault(ev);
     let userEmailValue = userEmail.value;
     let userPasswordValue = userPassword.value;
@@ -40,47 +38,47 @@ document.getElementById('hide-sign-up').addEventListener('click', (ev) => {
     });
     // Storing Dynamic Data in Firebase Realtime Database
     let databaseObject = {
-      user: {
-        nickname: '',
-        email: '',
-        uid: '',
-        profileImg: '',
-        posts: {
-          msg: '',
-          img: '',
-          likes: 0,
-          timeStamp: 0,
+        user: {
+            nickname: '',
+            email: '',
+            uid: '',
+            profileImg: '',
+            posts: {
+                msg: '',
+                img: '',
+                likes: 0,
+                timeStamp: 0,
+            }
         }
-      }
     };
     let signUpSection = document.getElementsByClassName('data-key-sign-up');
     for (let i = 0; i < signUpSection.length; i++) {
-      let key = signUpSection[i].getAttribute('data-key');
-      let value = signUpSection[i].value;
-      databaseObject.user[key] = value;
-      console.log(databaseObject);
+        let key = signUpSection[i].getAttribute('data-key');
+        let value = signUpSection[i].value;
+        databaseObject.user[key] = value;
+        console.log(databaseObject);
     }
     firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue);
-  });
-  // Sign In Event
-  btnSignIn.addEventListener('click', (ev) => {
+});
+// Sign In Event
+btnSignIn.addEventListener('click', (ev) => {
     event.preventDefault(ev);
     // Obtaining User Inputs
     let userEmailValueSignIn = userEmailSignIn.value;
     let userPasswordValueSignIn = userPasswordSignIn.value;
     // Sign In Firebase Function
     firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn).then(function(success) {
-    // Managin HTML view
-      signInAndUpContainer.style.display = 'none';
-      newsFeedContainer.style.display = 'block';
-      document.getElementById('userNickname').style.display = 'block';
-      success.location.assign = 'https://florenciasilva.github.io/cdmx-2018-06-bc-core-am-social-network/src/news-feed';
+        // Managin HTML view
+        signInAndUpContainer.style.display = 'none';
+        newsFeedContainer.style.display = 'block';
+        document.getElementById('userNickname').style.display = 'block';
+        success.location.assign = 'https://florenciasilva.github.io/cdmx-2018-06-bc-core-am-social-network/src/news-feed';
     }).catch(function(error) {
-      let errorCode = error.code;
-      let errorMessage = alert(error.message);
+        let errorCode = error.code;
+        let errorMessage = alert(error.message);
     });
     firebase.auth().signInWithEmailAndPassword(userEmailValueSignIn, userPasswordValueSignIn);
-  });
+});
 
 // Log in with facebook, we get this code from the site of facebook for developers
 /* let provider = new firebase.auth.FacebookAuthProvider();

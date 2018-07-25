@@ -21,30 +21,52 @@
 </head>
 
 <body>
+    <!-- Sidenav -->
+    <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="https://i.imgur.com/RDi3yDt.png">
+                </div>
+                <a href="#user"><img class="circle" src="http://via.placeholder.com/64x64"></a>
+                <a href="#name"><span class="black-text name">Usuario</span></a>
+                <a href="#email"><span class="black-text email">jdandturk@gmail.com</span></a>
+            </div>
+        </li>
+        <li><a href="#!"><i class="material-icons">cloud</i>Perfil</a></li>
+        <li><a href="#!">Configuración</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a class="subheader"></a>
+        </li>
+        <li><a class="waves-effect" href="#!">Log Out</a></li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons ">menu</i></a>
     <!-- News Feed -->
-    <section id="news-feed">
-        <div id="container valign-wrapper">
-            <p id="userNickname"></p>
-            <div class="row">
-                <div class="col s12 m6">
-                    <div class="card white">
-                        <div class="card-content black-text">
-                            <span class="card-title">Tell us something!</span>
-                            <textarea id="commentArea" placeholder="You can write here"></textarea>
-                            <div class="row ">
-                                <div class="col s8">
-                                    <button class="btn waves-effect waves-light color-change" id="btnSendComment" type="submit" name="action">Send
+
+    <div class="container valign-wrapper comment-section">
+        <p id="userNickname"></p>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card white s12">
+                    <div class="card-content black-text">
+                        <span class="card-title">Tell us something!</span>
+                        <textarea id="commentArea" placeholder="You can write here"></textarea>
+                        <div class="row ">
+                            <div class="col s8">
+                                <button class="btn waves-effect waves-light color-change" id="btnSendComment" type="submit" name="action">Send
                                       <i class="material-icons right">send</i>
                                     </button>
-                                </div>
                             </div>
                         </div>
-                        <div class="comment-area" id="comments"></div>
                     </div>
+                    <div class="comment-area" id="comments"></div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <section class="prueba">
         <div id="sign-in-status"></div>
