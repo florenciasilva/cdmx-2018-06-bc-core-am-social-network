@@ -1,4 +1,4 @@
-// Code Snippets 
+// Code Snippets
 
 let config = {
     apiKey: 'AIzaSyCDQFw022mnaArIkSeD7H-Q2V_zeoyX9YE',
@@ -22,7 +22,7 @@ let uiConfig = {
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
-    signInSuccessUrl: 'https://florenciasilva.github.io/cdmx-2018-06-bc-core-am-social-network/src/news-feed',
+    signInSuccessUrl: 'https://emeraldng.github.io/cdmx-2018-06-bc-core-am-social-network/src/news-feed',
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
