@@ -48,13 +48,30 @@ misma situacion que ella pero sin necesidad de ponerle un rostro ya que dentro
 de sus inseguridades esta el miedo de ser juzgada por tener pensamientos
 obsesivos.
 
+Las anteriores historias de usuario no son ficticias, de hecho exiten foros e hilos 
+a traves de sitios como <https://www.reddit.com/r/depression/> lugar donde los usuarios crearon
+un micro sitio de posts en los que cuentan sus experiencias y anecdotas de problemas
+que atraviesan y lo comparten con los demás usuarios y ellos a su vez comentan los post
+con un mensaje de apoyo o empatía
+Es interesante el ver que este sitio no fue creado en primer instancia para poder compartir
+expericias personales, si no que la necesidad de usuarios para compartir y expresar sus 
+sentimientos y sumado a las carencias de interactividad social, redes de apoyo y acceso a terapia,
+hacen que el internet sea su única red de interactividad.
+
+Entre las ventajas que existen de usar estos sitios destaca tres:
+**anonimato** : El usuario interesado utiliza un nickname que le da la seguridad que su identidad 
+personal esta oculta además de otros datos personales
+**fácil acceso**: 
+El proceso de compartir/cometar sea sencillo.
+**gratuito**
+
 
 # **Analisis de Data:**
 Durante nuestro Research analisimas data de encuestas que levantamos así como del INEGI.
 Los principales datos recolectados son:
 
 # **1) EDAD Y GÉNERO:**
-Según la data, las **mujeres** tienen una tendencia mayor a sufrir transtornos depresivos, sin embargo, entendemos que 
+Según la data, las **mujeres** tienen una tendencia mayor a sufrir transtornos depresivos, sin embargo, entendemos que
 interfiere el que sea una tema delicado y la población en general no es abierta al **confesar sentirse triste**:
 
 ## *Gráfica de Datos Recolectados en Encuesta:*
@@ -80,7 +97,7 @@ Como sociedad, las enfermedades de salud mental pública es algo que nos afecta 
 ![Gráfica Personas con Sintomas](http://i64.tinypic.com/2ryoglx.jpg)
 
 ### **COSTO Y ACCESO A SERVICIOS DE SALUD MENTAL**
-La depresión es real como otras condiciones médicas (cáncer o diabetes). 
+La depresión es real como otras condiciones médicas (cáncer o diabetes).
 La depresión puede y debe ser tratada.
 Sin embargo el acceso, medicación y costo de los servicios de salud mental son directamente proporcinal a la condición económica y social de cada individuo.
 Siendo las personas con ingresos bajos los que no reciban tratamiento para desordenes mentales.
@@ -114,3 +131,32 @@ Los usuarios principales tendrán el siguiente perfil:
 [Secretaría de Salud](https://www.gob.mx/cms/uploads/attachment/file/11918/Salud_Mental.pdf)
 
 [World Health Organization](http://www.who.int/mental_health/who_aims_country_reports/who_aims_report_mexico_es.pdf)
+
+
+## Boilerplate
+
+```
+./
+├── src
+│    └── css
+│    │     └── main.css
+│    └── js
+│    │     ├── index.js
+│    │     ├── login.js
+│    │     ├── app.js
+│    │     └── main.js
+│    └── views
+├── test
+│        ├── data.spec.js
+│        ├── headless.js
+│        ├── index.html
+│        └── social-network.spec.js
+├── UI
+│    └── README.md
+├── .eslintrc
+├── .gitignore
+├──  htmlhintrc
+├──  package.json
+├──  package-lock.json
+└──  README.md
+```
