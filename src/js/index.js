@@ -13,9 +13,7 @@ btnSignUp.addEventListener('click', (ev) => {
     let userEmailValue = userEmail.value;
     let userPasswordValue = userPassword.value;
     // Creating user with Email and Password
-    firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue).then(function() {
-        window.location.assign('../src/news-feed.html');
-    }).catch(function(error) {
+    firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = alert(error.message);
     });
@@ -42,6 +40,7 @@ btnSignUp.addEventListener('click', (ev) => {
         console.log(databaseObject);
     }
     firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(userEmailValue, userPasswordValue);
+    window.location.assign('../src/news-feed.html');
 });
 // Sign In Event
 btnSignIn.addEventListener('click', (ev) => {
