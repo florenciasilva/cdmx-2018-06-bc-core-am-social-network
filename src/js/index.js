@@ -31,6 +31,8 @@ btnSignUp.addEventListener('click', (ev) => {
                 img: '',
                 likes: 0,
                 timeStamp: 0,
+                reactions: 0,
+                date: ''
             }
         }
     };
