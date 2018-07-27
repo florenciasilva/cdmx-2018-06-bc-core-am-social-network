@@ -3,22 +3,20 @@
 // Set the configuration for your app
 var config = {
   apiKey: 'AIzaSyDr2vMSMnHcs2_uW-XCfA6yElseoW9py5M',
-  authDomain: 'pruebas-contador.firebaseapp.com',
-  databaseURL: 'https://pruebas-contador.firebaseio.com',
-  storageBucket: 'pruebas-contador.appspot.com'
+  authDomain: 'meeus-87217.firebaseapp.com',
+  projectId: 'meeus-87217'
 };
 firebase.initializeApp(config);
 
-// // counters/${ID}
-// {
-//   "numShards": NUM_SHARDS,
-//   "shards": [subcollection]
-// }
-
-// // counters/${ID}/shards/${NUM}
-// {
-//   "count": 123
-// }
+// counters/${ID} Testing cloud storage documentation. We use this to create a counter
+const obj = {
+  'numShards': NUM_SHARDS,
+  'shards': [subcollection],
+  // counters/${ID}/shards/${NUM}
+  countshards: {
+    'count': 123
+  }
+};
 
 const createCounter = (ref, numShards) => {
   let batch = db.batch();
