@@ -20,6 +20,7 @@ let uiConfig = {
         },
         uiShown: function() {}
     },
+
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
     signInSuccessUrl: '../src/news-feed',
@@ -31,6 +32,7 @@ let uiConfig = {
     ],
     // Terms of service url.
     tosUrl: '<your-tos-url>'
+
 };
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
