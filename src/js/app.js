@@ -1,7 +1,13 @@
-// HTML Elements for Comment Section
-let btnSendComment = document.getElementById('btnSendComment');
-let commentArea = document.getElementById('commentArea');
-let printComment = document.getElementById('printMessage');
+// Sign Out Event
+btnSignOut.addEventListener('click', (ev) => {
+    event.preventDefault(ev);
+    firebase.auth().signOut().then(function() {
+        window.location.assign('../src/index.html');
+          }).catch(function(error) {
+        let errorMsg = alert(error.message);
+      });
+firebase.auth().signOut();
+});
 
 // Send Comment
 btnSendComment.addEventListener('click', (ev) => {
