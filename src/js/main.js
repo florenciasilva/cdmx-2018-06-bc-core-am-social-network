@@ -21,3 +21,7 @@ let btnSendComment = document.getElementById('btnSendComment');
 let commentArea = document.getElementById('commentArea');
 let printComment = document.getElementById('printMessage');
 
+// HTML Elements for uploading images
+//let sendImg = document.getElementById('btn-send-img');
+//let imgUploaded = document.getElementById('img-upload');
+//let progress = document.getElementById('uploader');

@@ -1,6 +1,6 @@
 // Code Snippets
 
-let config = {
+let configuracion = {
   apiKey: 'AIzaSyCDQFw022mnaArIkSeD7H-Q2V_zeoyX9YE',
   authDomain: 'meeus-87217.firebaseapp.com',
   databaseURL: 'https://meeus-87217.firebaseio.com/',
@@ -8,7 +8,7 @@ let config = {
   storageBucket: 'meeus-87217.appspot.com',
   messagingSenderId: '659264664694'
 };
-firebase.initializeApp(config);
+firebase.initializeApp(configuracion);
 
 let ui = new firebaseui.auth.AuthUI(firebase.auth());
 let uiConfig = {

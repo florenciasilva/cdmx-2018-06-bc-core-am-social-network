@@ -1,15 +1,37 @@
-//console.log("hola!");
-
-firebase.initializeApp({
-  apiKey: "AIzaSyCDQFw022mnaArIkSeD7H-Q2V_zeoyX9YE",
-  authDomain: "meeus-87217.firebaseapp.com",
-  projectId: "meeus-87217"
-});
+let config = {
+  apiKey: 'AIzaSyCDQFw022mnaArIkSeD7H-Q2V_zeoyX9YE',
+  authDomain: 'meeus-87217.firebaseapp.com',
+  databaseURL: 'https://meeus-87217.firebaseio.com/',
+  projectId: 'meeus-87217',
+  storageBucket: 'meeus-87217.appspot.com',
+  messagingSenderId: '659264664694'
+};
+firebase.initializeApp(config);
 
 // Initialize Cloud Firestore through Firebase
 const db = firebase.firestore();
 
 //agregando documentos
+let imgUploaded = document.getElementById('img-upload');
+let progress = document.getElementById('uploader');
+
+
+imgUploaded.addEventListener('change', (ev) => {
+  let file = ev.target.files[0];
+  let storageRef = firebase.storage().ref('user/' + file.name);
+  let task = storageRef.put(file);
+  task.on('state_changed',
+    function progress(snapshot) {
+      let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100 ;
+      progress.value = percentage;
+    },
+    function error(err) {
+
+    },
+    function complete() {
+    }
+  );
+});
 const guardar = () => {
   //Declaramos una var que guarde el value del TextArea
   const postFromUser = document.getElementById("commentArea").value;
