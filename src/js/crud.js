@@ -90,7 +90,3 @@ function editar(id, postFromUser) {
       });
 
   }
-
-
-
-}

@@ -29,7 +29,11 @@ btnSignUp.addEventListener('click', (ev) => {
             posts: {
                 msg: '',
                 img: '',
-                likes: 0,
+                likes: {
+                    numShards: '',
+                    shards: [],
+                    count: 0,
+                },
                 timeStamp: 0,
                 reactions: 0,
                 date: ''
