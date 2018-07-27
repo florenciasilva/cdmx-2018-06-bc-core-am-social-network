@@ -21,3 +21,8 @@ const commentArea = document.getElementById('commentArea');
 const printComment = document.getElementById('printMessage');
 
 const cardDeComentario = document.getElementById('strfromuser');
+
+// HTML Elements for uploading images
+//let sendImg = document.getElementById('btn-send-img');
+//let imgUploaded = document.getElementById('img-upload');
+//let progress = document.getElementById('uploader');
