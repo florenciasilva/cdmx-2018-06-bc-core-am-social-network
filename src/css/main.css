@@ -139,3 +139,14 @@ span.card-title.generated {
     width: 50%;
     margin-bottom: 10px;
 }
+
+.comment-date {
+    font-family: 'Roboto';
+    font-weight: 100;
+    letter-spacing: -0.5px;
+    font-size: 90%;
+}
+
+.created {
+    margin-top: 2px;
+}

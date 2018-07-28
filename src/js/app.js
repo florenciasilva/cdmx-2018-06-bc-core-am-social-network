@@ -15,12 +15,13 @@ const guardar = () => {
     // Declaramos una var que guarde el value del TextArea
     let postFromUser = document.getElementById('commentArea').value;
     db.collection('publicaciones').add({
-            post: postFromUser
+            post: postFromUser,
+            date: Date(postFromUser)
         })
         .then(function(docRef) {
             console.log('Document written with ID: ', docRef.id);
             // Esto hace que la TextArea se reinicie una vez dado click en "SEND"
-            // document.getElementById("postFromUser").value = "";
+            //document.getElementById("postFromUser").value = "";
         })
         .catch(function(error) {
             console.error('Error adding document: ', error);
@@ -38,9 +39,10 @@ db.collection('publicaciones').onSnapshot((querySnapshot) => {
                                       <div class="col s8 m9 l9">
                                             <span class="card-title generated">user said:</span>
                                             <p class="user-comment">${doc.data().post}</p>
+                                            <p class="comment-date right">${doc.data().date.slice(0,22)}</p>
                                             <div class="center">
-                                            <a class="waves-effect waves-light btn-small color-change" onclick="eliminar('${doc.id}')">BORAR POST</a>
-                                            <a class="waves-effect waves-light btn-small color-change" onclick="editar('${doc.id}', '${doc.data().post}')">EDITAR POST</a>
+                                            <a class="waves-effect waves-light btn-small color-change created" onclick="eliminar('${doc.id}')">BORAR POST</a>
+                                            <a class="waves-effect waves-light btn-small color-change created" onclick="editar('${doc.id}', '${doc.data().post}')">EDITAR POST</a>
                                             </div>
                                         </div>
                                       </div>
@@ -80,18 +82,15 @@ function editar(id, postFromUser) {
 
 // Mobile Sidenav
 document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
+    let elems = document.querySelectorAll('.sidenav');
+    let instances = M.Sidenav.init(elems);
 });
-var collapsibleElem = document.querySelector('.collapsible');
-var collapsibleInstance = M.Collapsible.init(collapsibleElem);
-
+let collapsibleElem = document.querySelector('.collapsible');
+let collapsibleInstance = M.Collapsible.init(collapsibleElem);
 
 // IMG Uploader
 let uploader = document.getElementById('uploader');
 let fileButton = document.getElementById('fileButton');
-
-console.log('hola');
 
 fileButton.addEventListener('change', function(ev) {
     // Get file
