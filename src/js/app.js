@@ -31,19 +31,21 @@ db.collection('publicaciones').onSnapshot((querySnapshot) => {
     cardDeComentario.innerHTML = '';
     querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data().post}`);
-        cardDeComentario.innerHTML += `<div class="row">
-                                      <div class="col s12 m10">
+        cardDeComentario.innerHTML += `
                                         <div class="card white darken-1">
-                                          <div class="card-content black-text">
-                                            <span class="card-title"></span>
-                                            <p>${doc.data().post}</p>
-                                            <a class="waves-effect waves-light btn-small" onclick="eliminar('${doc.id}')">BORAR POST</a>
-                                            <a class="waves-effect waves-light btn-small" onclick="editar('${doc.id}', '${doc.data().post}')">EDITAR POST</a>
-                                          </div>
-
+                                          <div class="card-content black-text col s10 m8 l9">
+                                          <div class="row">
+                                      <div class="col s8 m9 l9">
+                                            <span class="card-title generated">user said:</span>
+                                            <p class="user-comment">${doc.data().post}</p>
+                                            <div class="center">
+                                            <a class="waves-effect waves-light btn-small color-change" onclick="eliminar('${doc.id}')">BORAR POST</a>
+                                            <a class="waves-effect waves-light btn-small color-change" onclick="editar('${doc.id}', '${doc.data().post}')">EDITAR POST</a>
+                                            </div>
                                         </div>
                                       </div>
-                                    </div>`;
+                                    </div>
+                                    `;
     });
 });
 // Borando post del usuario
@@ -76,7 +78,7 @@ function editar(id, postFromUser) {
     };
 };
 
-// Mobile SideNav
+// Mobile Sidenav
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
