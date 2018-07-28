@@ -84,4 +84,34 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Sidenav.init(elems);
 });
 var collapsibleElem = document.querySelector('.collapsible');
-var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+var collapsibleInstance = M.Collapsible.init(collapsibleElem);
+
+
+// IMG Uploader
+let uploader = document.getElementById('uploader');
+let fileButton = document.getElementById('fileButton');
+
+console.log('hola');
+
+fileButton.addEventListener('change', function(ev) {
+    // Get file
+    let file = ev.target.files[0];
+    // Storage ref
+    let storageRef = firebase.storage().ref('user/' + file.name);
+    // Upload file
+    let task = storageRef.put(file);
+    // Update progress
+    task.on('state_changed',
+        progress = (snapshot) => {
+            let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            uploader.value = percentage;
+            console.log(uploader.value);
+        },
+        error = (err) => {
+
+        },
+        complete = () => {
+
+        }
+    );
+});

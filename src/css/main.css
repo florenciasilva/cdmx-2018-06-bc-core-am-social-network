@@ -102,14 +102,6 @@ p {
     background-color: #4B9ECF;
     font-family: 'Roboto';
     font-weight: 100;
-    margin-top: -18%;
-    margin-left: 45%;
-}
-
-#btnSendComment {
-    background-color: #4B9ECF;
-    font-family: 'Roboto';
-    font-weight: 100;
 }
 
 .nav-wrapper {
@@ -139,4 +131,11 @@ a.brand-logo {
 
 span.card-title.generated {
     font-size: 20px;
+}
+
+#uploader {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50%;
+    margin-bottom: 10px;
 }
