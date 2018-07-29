@@ -1,17 +1,20 @@
-.login,
-.sign-in {
+.login {
     background-color: #fbfbfb;
     box-shadow: 1px 1px 10px #e8eaf6;
     font-family: 'Roboto';
     font-weight: 100;
 }
 
-#signIn {
+section.section.form {
+    margin-top: -25%;
+}
+
+div.input-field {
     margin-top: -5%;
 }
 
 .container {
-    margin-top: 15%;
+    margin-top: 1%;
 }
 
 .color-block {
@@ -37,9 +40,14 @@
 .sign-in-google {
     font-family: 'Roboto';
     font-weight: 100;
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0.6px;
     color: #474747;
+    margin-top: -5%;
+}
+
+.sign-in-options {
+    margin-top: -5%;
 }
 
 body {
@@ -87,11 +95,58 @@ p {
     letter-spacing: -0.4px;
     font-family: 'Roboto';
     font-weight: 100;
+    margin-top: -8%;
 }
 
 .color-change {
     background-color: #4B9ECF;
-    left: 37.5%;
     font-family: 'Roboto';
     font-weight: 100;
+}
+
+.nav-wrapper {
+    background-color: #4B9ECF;
+}
+
+a.brand-logo {
+    font-family: 'Pacifico';
+    font-size: 55px;
+    margin-top: -10px;
+}
+
+.user-comment {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 100%;
+    padding: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
+    border-color: rgb(169, 169, 169);
+    text-align: left;
+}
+
+#commentArea {
+    border-radius: 7px;
+}
+
+span.card-title.generated {
+    font-size: 20px;
+}
+
+#uploader {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.comment-date {
+    font-family: 'Roboto';
+    font-weight: 100;
+    letter-spacing: -0.5px;
+    font-size: 90%;
+}
+
+.created {
+    margin-top: 2px;
 }
