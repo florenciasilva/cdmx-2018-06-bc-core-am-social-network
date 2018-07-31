@@ -1,22 +1,36 @@
 // Prueba likes red social
 // Initialize Firebase
 // Set the configuration for your app
-var config = {
-  apiKey: 'AIzaSyDr2vMSMnHcs2_uW-XCfA6yElseoW9py5M',
-  authDomain: 'meeus-87217.firebaseapp.com',
-  projectId: 'meeus-87217'
-};
+let config = {
+    apiKey: "AIzaSyA8JbvS1-HANdqa6CR5Qth8KFUmc1cDsig",
+    authDomain: "prueba-2-contador.firebaseapp.com",
+    databaseURL: "https://prueba-2-contador.firebaseio.com",
+    projectId: "prueba-2-contador",
+    storageBucket: "",
+    messagingSenderId: "436794642932"
+  };
 firebase.initializeApp(config);
 
+const db = firebase.firestore();
+const settings = {/* your settings... */ timestampsInSnapshots: true};
+db.settings(settings);
+//
+// let count = 0;
+// firebase.database().red().on('value', function (snapshot){
+//   console.log(snapshot.val());
+//   count = snapshot.val().clicks;
+//
+// })
 // counters/${ID} Testing cloud storage documentation. We use this to create a counter
-const obj = {
-  'numShards': NUM_SHARDS,
-  'shards': [subcollection],
-  // counters/${ID}/shards/${NUM}
-  countshards: {
-    'count': 123
-  }
-};
+
+db.collection('Posts').add({
+  'numShards': 0,
+  'shards': [{
+    // counters/${ID}/shards/${NUM}
+    'count': 0
+  },
+
+  ]});
 
 const createCounter = (ref, numShards) => {
   let batch = db.batch();
