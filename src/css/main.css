@@ -14,7 +14,7 @@ div.input-field {
 }
 
 .container {
-    margin-top: 1%;
+    margin-top: 1.2%;
 }
 
 .color-block {
@@ -53,6 +53,7 @@ div.input-field {
 body {
     background-color: #eeffff;
     font-family: 'Roboto', sans-serif;
+    background-image: url('https://i.pinimg.com/originals/51/39/00/513900b641cfd79853d2a6ac14ffe375.jpg');
 }
 
 i {
@@ -132,7 +133,9 @@ a.brand-logo {
 span.card-title.generated {
     font-size: 20px;
 }
-
+#news-feed {
+    opacity: 0.8;
+}
 #uploader {
     -webkit-appearance: none;
     appearance: none;
@@ -149,4 +152,8 @@ span.card-title.generated {
 
 .created {
     margin-top: 2px;
+}
+
+#btn-sign-out {
+    letter-spacing: -0.9;
 }

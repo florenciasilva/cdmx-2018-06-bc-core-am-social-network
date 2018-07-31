@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <!-- Firebase UI-->
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
     <title>meeus | What's New</title>
@@ -38,27 +40,27 @@
                     <div class="background">
                         <img src="https://i.imgur.com/RDi3yDt.png">
                     </div>
-                    <a href="#user"><img class="circle" src="http://via.placeholder.com/64x64"></a>
+                    <a href="#user"><img class="circle" src="https://orig00.deviantart.net/a5d2/f/2016/271/3/b/_free__scrolling_bg__blue_forest_by_didthesqd-dahtee0.gif"></a>
                     <a href="#name"><span class="black-text name">Usuario</span></a>
-                    <a href="#email"><span class="black-text email">jdandturk@gmail.com</span></a>
+                    <a href="#email"><span class="black-text email">mail@gmail.com</span></a>
                 </div>
             </li>
-            <li><a href="#!"><i class="material-icons">cloud</i>Perfil</a></li>
-            <li><a href="#!">Configuración</a></li>
             <li>
                 <div class="divider"></div>
             </li>
             <li>
                 <a class="subheader"></a>
             </li>
-            <li><a class="waves-effect" id="btn_sign_out" href="#!">Log Out</a></li>
+           <li><a class="waves-effect" id="btn_sign_out" href="#!">Sign Out<i class="fas fa-sign-out-alt"></i></a></li>
+           
         </ul>
     </nav>
 
 
     <!-- News Feed -->
-    <section id="news-feed container valign-wrapper">
-        <div class="card white">
+    <div id="container" class="row valign-wrapper">
+    <section class="col s11 m11 l11" id="news-feed">
+        <div class="col s11 m11 l11 card white">
             <div class="card-content black-text">
                 <div class="row">
                     <div class="col s12 m8 l8">
@@ -79,13 +81,15 @@
         </div>
         <div class="comment-area col s12 m10 l10" id="comments"></div>
     </section>
-
+</div>
     <div class="container">
         <div class="row">
             <progress value="0" max="100" class="col s10 m6 l6" id="uploader">0%</progress>
         </div>
         <input type="file" value="upload" id="fileButton">
     </div>
+    <img id="myimg">
+
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
