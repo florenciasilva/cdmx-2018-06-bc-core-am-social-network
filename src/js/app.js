@@ -33,21 +33,21 @@ window.createUser = () => {
 db.collection('publicaciones').onSnapshot((querySnapshot) => {
   cardDeComentario.innerHTML = '';
   querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data().post}`);
+    console.log(`${doc.id} => ${doc.data().post} => ${doc.data().user_like}`);
     console.log(doc);
     cardDeComentario.innerHTML += `
+                                        <link rel="stylesheet" href="css/main.css">
                                         <div class="card white darken-1">
                                           <div class="card-content black-text col s10 m8 l9">
                                           <div class="row">
                                       <div class="col s8 m9 l9">
-                                            <span class="card-title generated">user said:</span>
+                                            <span class="card-title generated">anonymous said:</span>
                                             <p class="user-comment">${doc.data().post}</p>
                                             <p class="comment-date right">${doc.data().date.slice(0, 21)}</p>
                                             <div class="center">
-                                            <a class="waves-effect waves-light btn-small color-change created" onclick="deletePost('${doc.id}')"><i class="far fa-trash-alt"></i></a>
-                                            <a class="waves-effect waves-light btn-small color-change created" onclick="edit('${doc.id}', '${doc.data().post}')"><i class="far fa-edit"></i>
-                                            <a class="waves-effect waves-light btn-small" onclick="feelU('${doc.id}')"><i class="material-icons left">favorite</i>Feel U</a>
-                                            </a>
+                                            <a class="delete waves-effect waves-change btn-small color-change created" onclick="deletePost('${doc.id}')"><i class="far fa-trash-alt"></i></a>
+                                            <a class="edit waves-effect waves-change btn-small color-change created" onclick="edit('${doc.id}', '${doc.data().post}')"><i class="far fa-edit"></i>
+                                            <a class="feelings waves-effect waves-change btn-small color-change created" onclick="feelU('${doc.id}')"><i class="material-icons left">favorite</i>${doc.data().user_like}</a>
                                             </div>
                                         </div>
                                       </div>
@@ -62,7 +62,7 @@ window.deletePost = (id) => {
   }).catch(function(error) {
     console.error('Error removing document: ', error);
   });
-}
+};
 // Editando Post de Usuario.
 window.edit = (id, postFromUser) => {
   document.getElementById('commentArea').value = postFromUser;
@@ -85,31 +85,31 @@ window.edit = (id, postFromUser) => {
   };
 };
 
-//Get Likes
+// Get Likes
 window.feelU = (id) => {
-    let countRef = db.collection('publicaciones').doc(id);
-    db.runTransaction((transaction) => {
-      return transaction.get(countRef)
-        .then((countDoc) => {
-          if (!countDoc.exists) {
-            throw 'Document doesnt exist';
-          }
-          let newCount = countDoc.data().user_like + 1;
-          if (newCount >= 0) {
-            transaction.update(countRef, {user_like: newCount});
-            return newCount;
-          } else {
-            return Promise.reject('Sorry');
-          }
-        });
-    })
-      .then((newCount) => {
-        console.log('like increased to', newCount);
-      })
-      .catch((err) => {
-        console.log(err);
+  let countRef = db.collection('publicaciones').doc(id);
+  db.runTransaction((transaction) => {
+    return transaction.get(countRef)
+      .then((countDoc) => {
+        if (!countDoc.exists) {
+          throw 'Document doesnt exist';
+        }
+        let newCount = countDoc.data().user_like + 1;
+        if (newCount >= 0) {
+          transaction.update(countRef, {user_like: newCount});
+          return newCount;
+        } else {
+          return Promise.reject('Sorry');
+        }
       });
-}
+  })
+    .then((newCount) => {
+      console.log('like increased to', newCount);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 
 // Mobile Sidenav
@@ -152,8 +152,7 @@ fileButton.addEventListener('change', function(ev) {
           // Handle any errors here
         });
       };
-     getImgUrl();
-
+      getImgUrl();
     }
   );
 });

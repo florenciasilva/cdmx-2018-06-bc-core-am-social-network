@@ -5,6 +5,17 @@
     font-weight: 100;
 }
 
+.waves-effect.waves-change .waves-ripple{
+  background-color: #4b9ecf;
+
+}
+
+.btn-small{
+  background: #f4bf0b;
+  color: #1d1d1d;
+  font-weight: 400;
+}
+
 section.section.form {
     margin-top: -25%;
 }
@@ -57,7 +68,11 @@ body {
 }
 
 i {
-    color: #a6c4d1;
+    color: #171617;
+}
+
+.material-icons {
+
 }
 
 .description {
@@ -100,7 +115,7 @@ p {
 }
 
 .color-change {
-    background-color: #4B9ECF;
+    background-color:#f4bf0b;
     font-family: 'Roboto';
     font-weight: 100;
 }
@@ -152,6 +167,9 @@ span.card-title.generated {
 
 .created {
     margin-top: 2px;
+}
+.created:hover{
+  background: #edcf97;
 }
 
 #btn-sign-out {
