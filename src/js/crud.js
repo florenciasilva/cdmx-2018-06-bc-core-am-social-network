@@ -15,7 +15,8 @@ const guardar = () => {
   const postFromUser = document.getElementById('commentArea').value;
 
   db.collection('publicaciones').add({
-    post: postFromUser
+    post: postFromUser,
+    user_like: 0,
   })
     .then(function(docRef) {
       console.log('Document written with ID: ', docRef.id);
@@ -44,6 +45,8 @@ db.collection('publicaciones').onSnapshot((querySnapshot) => {
                                               <p>${doc.data().post}</p>
                                               <a class="waves-effect waves-light btn-small" onclick="eliminar('${doc.id}')">BORAR POST</a>
                                               <a class="waves-effect waves-light btn-small" onclick="editar('${doc.id}', '${doc.data().post}')">EDITAR POST</a>
+
+
                                             </div>
 
                                           </div>

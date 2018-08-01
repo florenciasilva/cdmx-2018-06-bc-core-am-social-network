@@ -11,12 +11,14 @@ btnSignOut.addEventListener('click', (ev) => {
 
 // Send, Edit and Delete Comments
 const db = firebase.firestore();
-const guardar = () => {
+window.createUser = () => {
   // Declaramos una var que guarde el value del TextArea
   let postFromUser = document.getElementById('commentArea').value;
   db.collection('publicaciones').add({
     post: postFromUser,
-    date: Date(postFromUser)
+    date: Date(postFromUser),
+    user_like: 0,
+
   })
     .then(function(docRef) {
       console.log('Document written with ID: ', docRef.id);
@@ -42,8 +44,9 @@ db.collection('publicaciones').onSnapshot((querySnapshot) => {
                                             <p class="user-comment">${doc.data().post}</p>
                                             <p class="comment-date right">${doc.data().date.slice(0, 21)}</p>
                                             <div class="center">
-                                            <a class="waves-effect waves-light btn-small color-change created" onclick="eliminar('${doc.id}')"><i class="far fa-trash-alt"></i></a>
-                                            <a class="waves-effect waves-light btn-small color-change created" onclick="editar('${doc.id}', '${doc.data().post}')"><i class="far fa-edit"></i>
+                                            <a class="waves-effect waves-light btn-small color-change created" onclick="deletePost('${doc.id}')"><i class="far fa-trash-alt"></i></a>
+                                            <a class="waves-effect waves-light btn-small color-change created" onclick="edit('${doc.id}', '${doc.data().post}')"><i class="far fa-edit"></i>
+                                            <a class="waves-effect waves-light btn-small" onclick="feelU('${doc.id}')"><i class="material-icons left">favorite</i>Feel U</a>
                                             </a>
                                             </div>
                                         </div>
@@ -53,7 +56,7 @@ db.collection('publicaciones').onSnapshot((querySnapshot) => {
   });
 });
 // Borando post del usuario
-function eliminar(id) {
+window.deletePost = (id) => {
   db.collection('publicaciones').doc(id).delete().then(function() {
     console.log('Document successfully deleted!');
   }).catch(function(error) {
@@ -61,7 +64,7 @@ function eliminar(id) {
   });
 }
 // Editando Post de Usuario.
-function editar(id, postFromUser) {
+window.edit = (id, postFromUser) => {
   document.getElementById('commentArea').value = postFromUser;
   let botonEditar = btnSendComment;
   botonEditar.innerHTML = 'EDITAR';
@@ -81,6 +84,33 @@ function editar(id, postFromUser) {
       });
   };
 };
+
+//Get Likes
+window.feelU = (id) => {
+    let countRef = db.collection('publicaciones').doc(id);
+    db.runTransaction((transaction) => {
+      return transaction.get(countRef)
+        .then((countDoc) => {
+          if (!countDoc.exists) {
+            throw 'Document doesnt exist';
+          }
+          let newCount = countDoc.data().user_like + 1;
+          if (newCount >= 0) {
+            transaction.update(countRef, {user_like: newCount});
+            return newCount;
+          } else {
+            return Promise.reject('Sorry');
+          }
+        });
+    })
+      .then((newCount) => {
+        console.log('like increased to', newCount);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+}
+
 
 // Mobile Sidenav
 document.addEventListener('DOMContentLoaded', function() {
@@ -110,7 +140,7 @@ fileButton.addEventListener('change', function(ev) {
       console.log(uploader.value);
       let snap = snapshot;
       return snap;
-      // console.log(snapshot);   
+      // console.log(snapshot);
     },
     error = (err) => {
     },
@@ -120,10 +150,10 @@ fileButton.addEventListener('change', function(ev) {
           return url;
         }).catch(function(error) {
           // Handle any errors here
-        });   
+        });
       };
      getImgUrl();
-    
+
     }
   );
 });
