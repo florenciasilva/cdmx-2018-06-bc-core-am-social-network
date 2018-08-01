@@ -43,11 +43,12 @@ db.collection('publicaciones').onSnapshot((querySnapshot) => {
                                       <div class="col s8 m9 l9">
                                             <span class="card-title generated">anonymous said:</span>
                                             <p class="user-comment">${doc.data().post}</p>
-                                            <p class="comment-date right">${doc.data().date.slice(0, 21)}</p>
+                                            
                                             <div class="center">
                                             <a class="delete waves-effect waves-change btn-small color-change created" onclick="deletePost('${doc.id}')"><i class="far fa-trash-alt"></i></a>
                                             <a class="edit waves-effect waves-change btn-small color-change created" onclick="edit('${doc.id}', '${doc.data().post}')"><i class="far fa-edit"></i>
                                             <a class="feelings waves-effect waves-change btn-small color-change created" onclick="feelU('${doc.id}')"><i class="material-icons left">favorite</i>${doc.data().user_like}</a>
+
                                             </div>
                                         </div>
                                       </div>
