@@ -9,7 +9,53 @@
   background-color: #4b9ecf;
 
 }
+#slogan{
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  padding-left: 25px;
+  color: #fff;
+}
+#remember{
+  font-size: 15px;
+  font-weight: bold;
+}
 
+#be-gentle{
+  font-size: 20px;
+  padding-left: 12%;
+  font-weight: bolder;
+
+}
+#be-kind{
+  font-size: 20px;
+  padding-left: 14%;
+  font-weight: bolder;
+
+
+}
+#be-you{
+  font-size: 20px;
+  padding-left: 14%;
+  font-weight: bolder;
+
+
+}
+#gentle{
+  font-size: 200px;
+  padding-left: 10%;
+  color: #4b9ecf;
+}
+#kind{
+  font-size: 200px;
+  padding-left: 10%;
+  color: #4b9ecf;
+}
+#you{
+  font-size: 200px;
+  padding-left: 10%;
+  color: #4b9ecf;
+}
 .btn-small{
   background: #f4bf0b;
   color: #1d1d1d;
@@ -84,6 +130,7 @@ i {
 
 h1 {
     font-family: 'Pacifico';
+    font-size: 150px;
     color: #4B9ECF;
     text-shadow: 1px 1px 1px #fbfbfb;
     text-align: center;
