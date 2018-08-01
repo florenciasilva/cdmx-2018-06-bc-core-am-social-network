@@ -34,11 +34,12 @@ db.collection('publicaciones').onSnapshot((querySnapshot) => {
   cardDeComentario.innerHTML = '';
   querySnapshot.forEach((doc) => {
     cardDeComentario.innerHTML += `
+                                        <link rel="stylesheet" href="css/main.css">
                                         <div class="card white darken-1">
                                           <div class="card-content black-text col s10 m8 l9">
                                           <div class="row">
                                       <div class="col s8 m9 l9">
-                                            <span class="card-title generated">user said:</span>
+                                            <span class="card-title generated">anonymous said:</span>
                                             <p class="user-comment">${doc.data().post}</p>
                                             <p class="comment-date right">${doc.data().date.slice(0, 21)}</p>
                                             <div class="center">
@@ -93,7 +94,11 @@ window.feelU = (id) => {
         }
         let newCount = countDoc.data().user_like + 1;
         if (newCount >= 0) {
+<<<<<<< HEAD
           transaction.update(countRef, { user_like: newCount });
+=======
+          transaction.update(countRef, {user_like: newCount});
+>>>>>>> upstream/master
           return newCount;
         } else {
           return Promise.reject('Sorry');

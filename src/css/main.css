@@ -5,6 +5,33 @@
     font-weight: 100;
 }
 
+.waves-effect.waves-change .waves-ripple{
+  background-color: #4b9ecf;
+
+}
+#slogan{
+  font-size: 10px;
+  font-family: 'Roboto';
+  font-weight: 100;
+  text-align: center;
+  color: #fff;
+}
+.remember-side{
+  font-size: 12px;
+  font-family: 'roboto';
+  font-weight: 100;
+  letter-spacing: 0.4px;
+  margin-left: 15% !important;
+  margin-top: 20%;
+}
+i.material-icons.left.icon-description {
+  font-size: 100px;
+  color: #4b9ecf;
+  margin-left: 15%;
+  margin-top: 20%;
+
+}
+
 section.section.form {
     margin-top: -25%;
 }
@@ -57,7 +84,7 @@ body {
 }
 
 i {
-    color: #a6c4d1;
+    color: #3d8db9;
 }
 
 .description {
@@ -69,6 +96,7 @@ i {
 
 h1 {
     font-family: 'Pacifico';
+    font-size: 100px;
     color: #4B9ECF;
     text-shadow: 1px 1px 1px #fbfbfb;
     text-align: center;
@@ -100,7 +128,7 @@ p {
 }
 
 .color-change {
-    background-color: #4B9ECF;
+    background-color:#4b9ecf;
     font-family: 'Roboto';
     font-weight: 100;
 }
