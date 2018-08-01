@@ -48,29 +48,28 @@ misma situacion que ella pero sin necesidad de ponerle un rostro ya que dentro
 de sus inseguridades esta el miedo de ser juzgada por tener pensamientos
 obsesivos.
 
-Las anteriores historias de usuario no son ficticias, de hecho exiten foros e hilos 
+Las anteriores historias de usuario no son ficticias, de hecho exiten foros e hilos
 a traves de sitios como <https://www.reddit.com/r/depression/> lugar donde los usuarios crearon
 un micro sitio de posts en los que cuentan sus experiencias y anecdotas de problemas
 que atraviesan y lo comparten con los demás usuarios y ellos a su vez comentan los post
 con un mensaje de apoyo o empatía
 Es interesante el ver que este sitio no fue creado en primer instancia para poder compartir
-expericias personales, si no que la necesidad de usuarios para compartir y expresar sus 
+expericias personales, si no que la necesidad de usuarios para compartir y expresar sus
 sentimientos y sumado a las carencias de interactividad social, redes de apoyo y acceso a terapia,
 hacen que el internet sea su única red de interactividad.
 
 Entre las ventajas que existen de usar estos sitios destaca tres:
-**anonimato** : El usuario interesado utiliza un nickname que le da la seguridad que su identidad 
+**anonimato** : El usuario interesado utiliza un nickname que le da la seguridad que su identidad
 personal esta oculta además de otros datos personales
-**fácil acceso**: 
+**fácil acceso**:
 El proceso de compartir/cometar sea sencillo.
 **gratuito**
 
-
-# **Analisis de Data:**
+## **Analisis de Data:**
 Durante nuestro Research analisimas data de encuestas que levantamos así como del INEGI.
 Los principales datos recolectados son:
 
-# **1) EDAD Y GÉNERO:**
+## **1. Edad y Género:**
 Según la data, las **mujeres** tienen una tendencia mayor a sufrir transtornos depresivos, sin embargo, entendemos que
 interfiere el que sea una tema delicado y la población en general no es abierta al **confesar sentirse triste**:
 
@@ -78,7 +77,7 @@ interfiere el que sea una tema delicado y la población en general no es abierta
 
 ![Gráfica de Datos Recolectados en Encuesta](http://i63.tinypic.com/200xxg7.jpg)
 
-# **2) SUICIDIOS EN MÉXICO:**
+## **2. Suicidios En México:**
 Encontramos a traves de data oficial del INEGI que las cifras del muertes por suicidio de los últimos 23 años, siendo 2014 , 2015, 2016; cifras alarmantes con una tendencia en aumento.
 En México, de 1970 a 2007, el suicidio se **incrementó en un 275%**, cobrando el mayor número de vidas en la **población masculina**.
 De acuerdo con cifras de la Organización Mundial de la Salud (OMS), en el mundo cada 40 segundos se suicida una persona, y cerca de 800 mil, al año.
@@ -86,7 +85,7 @@ De acuerdo con cifras de la Organización Mundial de la Salud (OMS), en el mundo
 ## *Gráfica de Suicidios en México:*
 ![Gráfica de Suicidios en México](http://i64.tinypic.com/algmt4.jpg)
 
-# **3) CULTURA DE SALUD MENTAL EN MÉXICO:**
+## **3. Cultura de Salud Mental en México:**
 La salud Mental ha sido totalmente estigmatizada y desvalorizada; siendo que una persona asistiría al médico por una gripa pero rara vez por sentirse deprimido durante periodos prolongados.
 
 Para contrarestar lo anterior se han creado campañas de concentización de la Secretaría de Salud pero el impacto en la población ha sido bajo.
@@ -103,7 +102,7 @@ Sin embargo el acceso, medicación y costo de los servicios de salud mental son 
 Siendo las personas con ingresos bajos los que no reciban tratamiento para desordenes mentales.
 
 # **Conclusión:**
-### *¿Porqué crear una Red Social para la salud mental?*
+### *¿Por qué crear una Red Social para la salud mental?*
 Con nuestro análisis podemos concluir que **no existe una verdadera cultura de la salud mental**, también el costo y acceso a tratamientos es un privilegio que pocos mexicanos pueden costear.
 Una manera de contrarestar esta situación, como primer alcance, nuestra nuestra social network pretende **crear una necesidad obligatoria y de autocuidado** y que junto con las ventajas del internet el usuario pueda acceder desde un dispositivo a **una comunidad solidaria y empática con usuarios con el mismo problema o con interes en ayudar a otros**, a la vez de cuidar su anonimato y sin **importar su sexo, edad, religión o estrato enconómico.**
 Añadiremos voluntarios (psicólogos, psiquiatras, profesores, mentores, médicos, público en general) que crean en la necesidad de crear una cultura de bienestar común. Creemos que el acompañamiento es vital para la superación y rehabilitación de estos procesos.
@@ -112,17 +111,17 @@ Todo lo anterior creará un **mayor impacto social y el alcancé será más ampl
 ### **TARGET**
 Los usuarios principales tendrán el siguiente perfil:
 
-✔ Jovenes y adolescentes.
-
-✔ Sin importar sexo u orientación sexual.
-
-✔ De 14 a 29 años de edad.
+✔ Jovenes y adolescentes (14 a 29 años).
 
 ✔ Sin acceso a servicios de salud pública.
 
+✔ Busca redes de apoyo de forma accesible, anónima y segura.
+
 ✔ Presentan sintomas o tiene ya diagnosticado depresión.
 
-✔ Busca redes de apoyo de forma accesible, anónima y segura.
+✔ Sin importar sexo u orientación sexual.
+
+
 
 **Fuentes de Información**
 
@@ -133,8 +132,12 @@ Los usuarios principales tendrán el siguiente perfil:
 [World Health Organization](http://www.who.int/mental_health/who_aims_country_reports/who_aims_report_mexico_es.pdf)
 
 
-## Boilerplate
+# Funcionalidad
 
+## Consideraciones Generales
+
+Este proyecto utiliza [Materialize](https://materializecss.com/) para nuestra interfaz, permitiendo que éste proyecto sea **responsive**, y [Firebase](https://firebase.google.com/) para los servicios de base de datos y  autenticación de usuarios.
+Utilizamos el siguiente boilerplate para la organización de archivos y sus tests respectivos.
 ```
 ./
 ├── src
@@ -160,3 +163,28 @@ Los usuarios principales tendrán el siguiente perfil:
 ├──  package-lock.json
 └──  README.md
 ```
+
+Para contribuir, primero debes hacer un *fork* y *clonar* este repositorio. Puedes empezar a trabajar basándote en el *boilerplate*.
+
+## Funcionalidades Específicas
+
+En nuestra primer vista de la página, encontramos tres formas para registrarse o iniciar sesión:
+**Facebook**, **Gmail** y **Correo electrónico**.
+Con la última, se guardará la información en la base de datos alojada en Firebase, la cual creará un usuario asociado a la dirección de correo proporcionada. Estos correos no se podrán repetir y sólo podrán iniciar sesión con la contraseña correcta.
+
+En el caso de Facebook y Gmail, la autenticación corre por medio de éstas páginas y la información de usuario solo se mostrará en la página con fines estéticos e informativos de la sesión iniciada.
+
+En caso de tener una cuenta por correo electrónico, se verá un link para mostrar la sección de inicio de sesión, donde el usuario tendrá que proporcionar correo electrónico y contraseña utilizados en el proceso de registro.
+
+Una vez que el usuario ha sido autenticado, pasará a la segunda vista de nuestra página web llamada *news feed*. En esta sección se verá en tiempo real comentarios de otros usuarios y se podrá editar y borrar comentarios, así como dar puntos a las publicaciones (*like/corazón*).
+
+En la esquina superior izquierda se encuentra un icono de menú que se activa mediante un click, revelando un mini-perfil con imagen de usuario, nombre y correo. Ahí mismo se encontrará el botón para cerrar sesión, el cual redireccionará al usuario a la primer vista de la página.
+
+# Sketch
+
+Pueden encontrar el sketch completo [aquí](https://marvelapp.com/413d269/screen/46081665).
+![img](https://i.imgur.com/5ULMbEy.png)
+
+En el proyecto actual se reemplazan las fuentes por **Roboto** para texto y **Pacifico** para titulos.
+La paleta de colores se simplifica de la siguiente manera:
+![img](https://i.imgur.com/OYjTXUG.png)
