@@ -94,11 +94,7 @@ window.feelU = (id) => {
         }
         let newCount = countDoc.data().user_like + 1;
         if (newCount >= 0) {
-<<<<<<< HEAD
-          transaction.update(countRef, { user_like: newCount });
-=======
           transaction.update(countRef, {user_like: newCount});
->>>>>>> upstream/master
           return newCount;
         } else {
           return Promise.reject('Sorry');
