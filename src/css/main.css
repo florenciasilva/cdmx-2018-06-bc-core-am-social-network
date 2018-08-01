@@ -86,7 +86,9 @@ body {
 i {
     color: #3d8db9;
 }
-
+.card.card-content p {
+  margin: auto;
+}
 .description {
     font-family: 'Roboto';
     font-weight: 100;
