@@ -23,14 +23,17 @@ window.createUser = () => {
     .then(function(docRef) {
       console.log('Document written with ID: ', docRef.id);
       // Esto hace que la TextArea se reinicie una vez dado click en "SEND"
-      // document.getElementById("postFromUser").value = "";
+      document.getElementById('commentArea').value = '';
     })
     .catch(function(error) {
       console.error('Error adding document: ', error);
     });
 };
+      // Esto hace que la TextArea se reinicie una vez dado click en "SEND"
+      // document.getElementById("postFromUser").value = "";
 // Pintando post del usuario
 db.collection('publicaciones').onSnapshot((querySnapshot) => {
+
   cardDeComentario.innerHTML = '';
   querySnapshot.forEach((doc) => {
     cardDeComentario.innerHTML += `
@@ -45,7 +48,8 @@ db.collection('publicaciones').onSnapshot((querySnapshot) => {
                                             <div class="row center">
                                             <a class="waves-effect waves-light btn-small color-change created" onclick="deletePost('${doc.id}')"><i class="far fa-trash-alt"></i></a>
                                             <a class="waves-effect waves-light btn-small color-change created" onclick="edit('${doc.id}', '${doc.data().post}')"><i class="far fa-edit"></i></a>
-                                            <a class="waves-effect waves-light btn-small color-change created" onclick="feelU('${doc.id}')"><i class="fas fa-heart"></i></a>
+                                            <a class="waves-effect waves-light btn-small color-change created" onclick="feelU('${doc.id}')"><i class="fas fa-heart"></i>${doc.data().user_like}</a>
+
                                             </div>
                                         </div>
                                       </div>
