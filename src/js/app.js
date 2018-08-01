@@ -33,8 +33,6 @@ window.createUser = () => {
 db.collection('publicaciones').onSnapshot((querySnapshot) => {
   cardDeComentario.innerHTML = '';
   querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data().post}`);
-    console.log(doc);
     cardDeComentario.innerHTML += `
                                         <div class="card white darken-1">
                                           <div class="card-content black-text col s10 m8 l9">
@@ -45,9 +43,8 @@ db.collection('publicaciones').onSnapshot((querySnapshot) => {
                                             <p class="comment-date right">${doc.data().date.slice(0, 21)}</p>
                                             <div class="center">
                                             <a class="waves-effect waves-light btn-small color-change created" onclick="deletePost('${doc.id}')"><i class="far fa-trash-alt"></i></a>
-                                            <a class="waves-effect waves-light btn-small color-change created" onclick="edit('${doc.id}', '${doc.data().post}')"><i class="far fa-edit"></i>
-                                            <a class="waves-effect waves-light btn-small" onclick="feelU('${doc.id}')"><i class="material-icons left">favorite</i>Feel U</a>
-                                            </a>
+                                            <a class="waves-effect waves-light btn-small color-change created" onclick="edit('${doc.id}', '${doc.data().post}')"><i class="far fa-edit"></i></a>
+                                            <a class="waves-effect waves-light btn-small color-change created" onclick="feelU('${doc.id}')"><i class="fas fa-heart"></i></a>
                                             </div>
                                         </div>
                                       </div>
@@ -62,7 +59,7 @@ window.deletePost = (id) => {
   }).catch(function(error) {
     console.error('Error removing document: ', error);
   });
-}
+};
 // Editando Post de Usuario.
 window.edit = (id, postFromUser) => {
   document.getElementById('commentArea').value = postFromUser;
@@ -85,31 +82,31 @@ window.edit = (id, postFromUser) => {
   };
 };
 
-//Get Likes
+// Get Likes
 window.feelU = (id) => {
-    let countRef = db.collection('publicaciones').doc(id);
-    db.runTransaction((transaction) => {
-      return transaction.get(countRef)
-        .then((countDoc) => {
-          if (!countDoc.exists) {
-            throw 'Document doesnt exist';
-          }
-          let newCount = countDoc.data().user_like + 1;
-          if (newCount >= 0) {
-            transaction.update(countRef, {user_like: newCount});
-            return newCount;
-          } else {
-            return Promise.reject('Sorry');
-          }
-        });
-    })
-      .then((newCount) => {
-        console.log('like increased to', newCount);
-      })
-      .catch((err) => {
-        console.log(err);
+  let countRef = db.collection('publicaciones').doc(id);
+  db.runTransaction((transaction) => {
+    return transaction.get(countRef)
+      .then((countDoc) => {
+        if (!countDoc.exists) {
+          throw 'Document doesnt exist';
+        }
+        let newCount = countDoc.data().user_like + 1;
+        if (newCount >= 0) {
+          transaction.update(countRef, { user_like: newCount });
+          return newCount;
+        } else {
+          return Promise.reject('Sorry');
+        }
       });
-}
+  })
+    .then((newCount) => {
+      console.log('like increased to', newCount);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 
 // Mobile Sidenav
@@ -142,8 +139,7 @@ fileButton.addEventListener('change', function(ev) {
       return snap;
       // console.log(snapshot);
     },
-    error = (err) => {
-    },
+    error = (err) => {},
     success = () => {
       const getImgUrl = function() {
         storage.child('user/' + file.name).getDownloadURL().then(function(url) {
@@ -152,8 +148,7 @@ fileButton.addEventListener('change', function(ev) {
           // Handle any errors here
         });
       };
-     getImgUrl();
-
+      getImgUrl();
     }
   );
 });

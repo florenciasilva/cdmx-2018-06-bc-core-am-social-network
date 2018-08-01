@@ -1,4 +1,3 @@
-// HTML Elements
 // HTML Container for Sign Up and Sign In
 const signInAndUpContainer = document.getElementById('sign-in-and-sign-up');
 // HTML Container for News Feed
@@ -14,15 +13,8 @@ const userEmailSignIn = document.getElementById('icon_email_sign_in');
 const userPasswordSignIn = document.getElementById('icon_vpn_key_sign_in');
 const btnSignInGoogle = document.getElementById('btn_sign_in_google');
 const btnSignOut = document.getElementById('btn_sign_out');
-
 // HTML Elements for Comment Section
 const btnSendComment = document.getElementById('btnSendComment');
 const commentArea = document.getElementById('commentArea');
 const printComment = document.getElementById('printMessage');
-
 const cardDeComentario = document.getElementById('strfromuser');
-
-// HTML Elements for uploading images
-//let sendImg = document.getElementById('btn-send-img');
-//let imgUploaded = document.getElementById('img-upload');
-//let progress = document.getElementById('uploader');
