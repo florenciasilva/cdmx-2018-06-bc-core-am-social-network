@@ -23,14 +23,17 @@ window.createUser = () => {
     .then(function(docRef) {
       console.log('Document written with ID: ', docRef.id);
       // Esto hace que la TextArea se reinicie una vez dado click en "SEND"
-      // document.getElementById("postFromUser").value = "";
+      document.getElementById('commentArea').value = '';
     })
     .catch(function(error) {
       console.error('Error adding document: ', error);
     });
 };
+      // Esto hace que la TextArea se reinicie una vez dado click en "SEND"
+      // document.getElementById("postFromUser").value = "";
 // Pintando post del usuario
 db.collection('publicaciones').onSnapshot((querySnapshot) => {
+
   cardDeComentario.innerHTML = '';
   querySnapshot.forEach((doc) => {
     console.log(`${doc.id} => ${doc.data().post} => ${doc.data().user_like}`);
@@ -43,7 +46,7 @@ db.collection('publicaciones').onSnapshot((querySnapshot) => {
                                       <div class="col s8 m9 l9">
                                             <span class="card-title generated">anonymous said:</span>
                                             <p class="user-comment">${doc.data().post}</p>
-                                            
+                                            <p class="comment-date right">${doc.data().date.slice(0, 21)}</p>
                                             <div class="center">
                                             <a class="delete waves-effect waves-change btn-small color-change created" onclick="deletePost('${doc.id}')"><i class="far fa-trash-alt"></i></a>
                                             <a class="edit waves-effect waves-change btn-small color-change created" onclick="edit('${doc.id}', '${doc.data().post}')"><i class="far fa-edit"></i>
